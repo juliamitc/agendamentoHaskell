@@ -4,3 +4,5 @@
 /robots.txt RobotsR GET
 
 / HomeR GET 
+/cadastrar/medicos CadMedicosR GET
+/agendar AgendamentoR GET

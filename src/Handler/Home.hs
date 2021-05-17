@@ -2,13 +2,27 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE QuasiQuotes #-}
 module Handler.Home where
 
 import Import
-import Network.HTTP.Types.Status
-import Database.Persist.Postgresql
+import Text.Cassius
+import Text.Julius
+--import Network.HTTP.Types.Status
+--import Database.Persist.Postgresql
+--import Network.HTTP.Types.Status
+--import Database.Persist.Postgresql
+    
+-- Interpolador @ mexe com links
 
+-- O ideal eh ter apenas chamadas a templates.
+-- css_bootstrap_css => css/bootstrap.css
 getHomeR :: Handler Html
-getHomeR = undefined
+getHomeR = do
+    defaultLayout $ do
+        setTitle "Home" 
+        -- estatico
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/home.cassius")
+        $(whamletFile "templates/home.hamlet")

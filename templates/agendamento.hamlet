@@ -1,0 +1,35 @@
+<div #background>
+    <div #sidebar>
+        <div>
+            <img src="/static/img/logoag.png">
+                
+        <div #menu>
+            <h2>
+                <b>
+                    MENU
+            <ul>
+                <hr class="solid">
+                <a href=@{HomeR}>
+                    <li>
+                        <i>
+                            Home
+                <hr class="solid">
+                <a href=@{CadMedicosR}>
+                    <li>
+                        <i>
+                            Cadastrar Doutores
+                <hr class="solid">
+                <a href=@{AgendamentoR}>
+                    <li>
+                        <i>
+                            Agendar Pacientes
+                <hr class="solid">
+    <div #content>
+        <h2>
+            <b>
+            Agendar Pacientes
+        <p>
+            Aqui ficará a tabela com os horários disponíveis do médico escolhido para agendar o paciente.
+
+            
+           
