@@ -27,10 +27,15 @@
     <div #content>
         <h2>
             <b>
-            Seja Bem-Vindo!
-        <p>
-            Utilize o nosso portal interno para agendamento de consultas para cadastrar novos médicos da clínica e agendar os pacientes nos horários disponíveis de cada um.
-            <br> Para realizar estas atividades basta escolher a ação desejada no menu ao lado.
+            Selecione a ação desejada:
+        <div #acoes>
+            <a href=@{PacienteR}>
+                Cadastrar Pacientes
+            <br>
+            <a href=@{ListaPacientesR}>
+                Acessar Lista de Pacientes
+
+
 
             
            

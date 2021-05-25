@@ -3,6 +3,18 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/ HomeR GET 
-/cadastrar/medicos CadMedicosR GET
+/ HomeR GET
+
+/menu/medico MenuMedR GET
+/medico MedicoR GET POST
+/medico/perfil/#MedicoId MedicoPerfilR GET
+/medicos ListaMedicosR GET
+/medico/#MedicoId ApagarMedR POST
+
+/menu/paciente MenuPacR GET
+/paciente PacienteR GET POST
+/paciente/perfil/#PacienteId PacientePerfilR GET
+/pacientes ListaPacientesR GET
+/paciente/#PacienteId ApagarPacR POST
+
 /agendar AgendamentoR GET

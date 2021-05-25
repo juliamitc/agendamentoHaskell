@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            <th>
+                NOME
+            <th>
+                ESPECIALIDADE
+            <th>
+                CRM
+            <th>
+            
+    <tbody>
+        $forall Entity mid medico <- medicos
+            <tr>
+                <td>
+                    #{medicoNome medico}
+                <td>
+                    #{medicoEspecialidade medico}
+                <td>
+                    #{medicoCrm medico}
+                <td>
+                    <form method=post action=@{ApagarMedR mid}>
+                        <input type="submit" value="X">

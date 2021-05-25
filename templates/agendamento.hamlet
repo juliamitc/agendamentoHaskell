@@ -14,7 +14,7 @@
                         <i>
                             Home
                 <hr class="solid">
-                <a href=@{CadMedicosR}>
+                <a href=@{MedicoR}>
                     <li>
                         <i>
                             Cadastrar Doutores

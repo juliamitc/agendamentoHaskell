@@ -14,22 +14,28 @@
                         <i>
                             Home
                 <hr class="solid">
-                <a href=@{CadMedicosR}>
+                <a href=@{MenuMedR}>
                     <li>
                         <i>
-                            Cadastrar Doutores
+                            Doutores
                 <hr class="solid">
-                <a href=@{AgendamentoR}>
+                <a href=@{MenuPacR}>
                     <li>
                         <i>
-                            Agendar Pacientes
+                            Pacientes
                 <hr class="solid">
     <div #content>
         <h2>
             <b>
-            Cadastrar Novos Doutores
-        <p>
-            Aqui ficará o método para cadastrar novos médicos no sistema.
+            Selecione a ação desejada:
+        <div #acoes>
+            <a href=@{MedicoR}>
+                Cadastrar Médicos
+            <br>
+            <a href=@{ListaMedicosR}>
+                Acessar Lista de Médicos
+
+
 
             
            

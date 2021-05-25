@@ -25,6 +25,7 @@ img
 #content
     margin-left: 250px
     padding: 60px
+    background-color: #FDFFFC
 
 hr.solid 
   border-top: 1px solid #afdedc

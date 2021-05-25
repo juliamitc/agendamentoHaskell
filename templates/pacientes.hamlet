@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th>
+                NOME
+            <th>
+                IDADE
+            <th>
+                CPF
+            <th>
+                PLANO
+            <th>
+            
+    <tbody>
+        $forall Entity pid paciente <- pacientes
+            <tr>
+                <td>
+                    #{pacienteNome paciente}
+                <td>
+                    #{pacienteCpf paciente}
+                <td>
+                    #{pacienteIdade paciente}
+                <td>
+                    #{pacientePlano paciente}
+                <td>
+                    <form method=post action=@{ApagarPacR pid}>
+                        <input type="submit" value="X">
