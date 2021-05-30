@@ -27,16 +27,13 @@
     <div #content>
         <h2>
             <b>
-            Cadastrar Médicos
+            Selecione a ação desejada:
         <div #acoes>
-            $maybe mensa <- msg
-                <div>
-                    ^{mensa}
-            
-            <form method=post action=@{MedicoR}>
-                ^{widget}
-                <input type="submit" value="Cadastrar">
-                <input type="button" value="Voltar" onclick="history.back()">
+            <a href=@{MedicoR}>
+                Cadastrar Médicos
+            <br>
+            <a href=@{ListaMedicosR}>
+                Acessar Lista de Médicos
 
 
 

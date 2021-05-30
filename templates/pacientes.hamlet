@@ -23,5 +23,8 @@
                 <td>
                     #{pacientePlano paciente}
                 <td>
+                    <a href=@{EditarPacR pid}>
+                        Editar
+                <td>
                     <form method=post action=@{ApagarPacR pid}>
                         <input type="submit" value="X">

@@ -19,5 +19,8 @@
                 <td>
                     #{medicoCrm medico}
                 <td>
+                    <a href=@{EditarMedR mid}>
+                        Editar
+                <td>
                     <form method=post action=@{ApagarMedR mid}>
                         <input type="submit" value="X">

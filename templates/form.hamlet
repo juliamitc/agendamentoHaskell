@@ -1,0 +1,9 @@
+
+$maybe mensa <- msg
+    <div>
+        ^{mensa}
+            
+<form method=post action=@{rota}>
+    ^{widget}
+    <input type="submit" value=#{m}>
+    <input type="button" value="Voltar" onclick="history.back()">

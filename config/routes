@@ -10,11 +10,13 @@
 /medico/perfil/#MedicoId MedicoPerfilR GET
 /medicos ListaMedicosR GET
 /medico/#MedicoId ApagarMedR POST
+/medico/editar/#MedicoId EditarMedR GET POST
 
 /menu/paciente MenuPacR GET
 /paciente PacienteR GET POST
 /paciente/perfil/#PacienteId PacientePerfilR GET
 /pacientes ListaPacientesR GET
 /paciente/#PacienteId ApagarPacR POST
+/paciente/editar/#PacienteId EditarPacR GET POST
 
 /agendar AgendamentoR GET

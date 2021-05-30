@@ -18,32 +18,22 @@ getMenuPacR = do
         toWidgetHead $(cassiusFile "templates/cadmedico.cassius")
         $(whamletFile "templates/menupacientes.hamlet")
 
-formPaciente :: Form Paciente
-formPaciente = renderDivs $ Paciente
-    <$> areq textField "Nome: " Nothing
-    <*> areq textField "CPF: " Nothing
-    <*> areq intField "Idade: " Nothing
-    <*> areq textField "Plano: " Nothing
+formPaciente :: Maybe Paciente -> Form Paciente
+formPaciente mc = renderDivs $ Paciente
+    <$> areq textField "Nome: " (fmap pacienteNome mc)
+    <*> areq textField "CPF: " (fmap pacienteCpf mc)
+    <*> areq intField "Idade: " (fmap pacienteIdade mc)
+    <*> areq textField "Plano: " (fmap pacientePlano mc)
 
 getPacienteR :: Handler Html
 getPacienteR = do
-    (widget,_) <- generateFormPost formPaciente
+    (widget,_) <- generateFormPost (formPaciente Nothing)
     msg <- getMessage
-    defaultLayout $ do
-        [whamlet|
-            $maybe mensa <- msg
-                <div>
-                    ^{mensa}
-            
-            <form method=post action=@{PacienteR}>
-                ^{widget}
-                <input type="submit" value="Cadastrar">
-                <input type="button" value="Voltar" onclick="history.back()">
-        |]
+    defaultLayout (formWidget widget msg PacienteR "Cadastrar")
 
 postPacienteR :: Handler Html
 postPacienteR = do
-    ((result,_),_) <- runFormPost formPaciente
+    ((result,_),_) <- runFormPost (formPaciente Nothing)
     case result of
         FormSuccess paciente -> do
             runDB $ insert paciente
@@ -77,4 +67,24 @@ getListaPacientesR = do
 postApagarPacR :: PacienteId -> Handler Html
 postApagarPacR pid = do
     runDB $ delete pid
-    redirect ListaPacientesR   
+    redirect ListaPacientesR
+
+getEditarPacR :: PacienteId -> Handler Html
+getEditarPacR pid = do
+    paciente <- runDB $ get404 pid
+    (widget, _) <- generateFormPost (formPaciente (Just paciente))
+    msg <- getMessage
+    defaultLayout (formWidget widget msg (EditarPacR pid) "Editar")
+
+postEditarPacR :: PacienteId -> Handler Html
+postEditarPacR pid = do
+    pacienteAntigo <- runDB $ get404 pid
+    ((result,_),_) <- runFormPost (formPaciente Nothing)
+    case result of
+        FormSuccess novoPaciente -> do
+            runDB $ replace pid novoPaciente
+            redirect ListaPacientesR
+        _ -> redirect HomeR
+
+formWidget :: Widget -> Maybe Html -> Route App -> Text -> Widget
+formWidget widget msg rota m = $(whamletFile "templates/form.hamlet")   
