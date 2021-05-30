@@ -19,4 +19,9 @@
 /paciente/#PacienteId ApagarPacR POST
 /paciente/editar/#PacienteId EditarPacR GET POST
 
+/usuario UsuarioR GET POST
+
+/login AutR GET POST
+/logout SairR POST
+
 /agendar AgendamentoR GET

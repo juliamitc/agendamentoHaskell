@@ -1,0 +1,9 @@
+
+<div #background>
+  $maybe mensa <- msg
+      <div>
+          ^{mensa}
+  <div #formlogin>            
+    <form method=post action=@{rota}>
+        ^{widget}
+        <input #entrar type="submit" value=#{m}>

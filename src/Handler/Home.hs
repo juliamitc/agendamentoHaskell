@@ -23,6 +23,7 @@ getHomeR = do
     defaultLayout $ do
         setTitle "Home" 
         -- estatico
+        usuario <- lookupSession "_ID"
         addStylesheet (StaticR css_bootstrap_css)
         toWidgetHead $(cassiusFile "templates/home.cassius")
         $(whamletFile "templates/home.hamlet")

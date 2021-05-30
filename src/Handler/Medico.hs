@@ -8,6 +8,7 @@ module Handler.Medico where
 
 import Import
 import Text.Cassius
+import Handler.Auxiliar
 
 getMenuMedR :: Handler Html
 getMenuMedR = do
@@ -89,6 +90,3 @@ postEditarMedR mid = do
             runDB $ replace mid novoMedico
             redirect ListaMedicosR
         _ -> redirect HomeR
-
-formWidget :: Widget -> Maybe Html -> Route App -> Text -> Widget
-formWidget widget msg rota m = $(whamletFile "templates/form.hamlet")

@@ -54,3 +54,24 @@ p
     justify-content: center
     margin-left: 15px
 
+#nosession
+    justify-items: center
+    position: relative
+    margin-top: 120px
+    display: grid
+    grid-template-columns: auto
+    grid-gap: 0.5rem 1rem
+
+#nosessimg
+    margin-left: -5px
+
+#loginbutton
+    background-color: #00C2CB
+    color: white
+    font-size: 16px
+    margin-left: 12px
+    margin-top: 5px
+    border: none
+    width: 100px
+    height: 28px
+

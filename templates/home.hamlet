@@ -1,36 +1,42 @@
 <div #background>
-    <div #sidebar>
-        <div>
-            <img src="/static/img/logoag.png">
-                
-        <div #menu>
+    $maybe email <- usuario
+        <div #sidebar>
+            <div>
+                <img src="/static/img/logoag.png">
+                    
+            <div #menu>
+                <h2>
+                    <b>
+                        MENU
+                <ul>
+                    <hr class="solid">
+                    <a href=@{HomeR}>
+                        <li>
+                            <i>
+                                Home
+                    <hr class="solid">
+                    <a href=@{MenuMedR}>
+                        <li>
+                            <i>
+                                Doutores
+                    <hr class="solid">
+                    <a href=@{MenuPacR}>
+                        <li>
+                            <i>
+                                Pacientes
+                    <hr class="solid">
+        <div #content>
             <h2>
                 <b>
-                    MENU
-            <ul>
-                <hr class="solid">
-                <a href=@{HomeR}>
-                    <li>
-                        <i>
-                            Home
-                <hr class="solid">
-                <a href=@{MenuMedR}>
-                    <li>
-                        <i>
-                            Doutores
-                <hr class="solid">
-                <a href=@{MenuPacR}>
-                    <li>
-                        <i>
-                            Pacientes
-                <hr class="solid">
-    <div #content>
-        <h2>
-            <b>
-            Seja Bem-Vindo!
-        <p>
-            Utilize o nosso portal interno para agendamento de consultas para cadastrar novos médicos da clínica e agendar os pacientes nos horários disponíveis de cada um.
-            <br> Para realizar estas atividades basta escolher a ação desejada no menu ao lado.
-
-            
-           
+                Seja Bem-Vindo!
+            <p>
+                Utilize o nosso portal interno para agendamento de consultas para cadastrar novos médicos da clínica e agendar os pacientes nos horários disponíveis de cada um.
+                <br> Para realizar estas atividades basta escolher a ação desejada no menu ao lado.
+    $nothing
+        <div #nosession>
+            <img #nosessimg src="/static/img/logoag.png">
+            <h2>
+                Seja Bem-Vindo!
+            <p> Faça o Login abaixo para acessar a plataforma
+            <form action=@{AutR}>
+                <input #loginbutton type="submit" value="Entrar">
