@@ -24,4 +24,4 @@
 /login AutR GET POST
 /logout SairR POST
 
-/agendar AgendamentoR GET
+/agendar AgendamentoR GET POST

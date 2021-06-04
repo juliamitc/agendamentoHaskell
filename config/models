@@ -11,10 +11,10 @@ Paciente
     plano Text
     deriving Show
 
-Consulta
+Agendamento
     tipo Text
-    doutor Text
-    paciente Text
+    medicoid MedicoId
+    pacienteid PacienteId
     dia Day
     hora Text
     deriving Show

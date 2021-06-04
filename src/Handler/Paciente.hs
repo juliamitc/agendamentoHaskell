@@ -30,7 +30,11 @@ getPacienteR :: Handler Html
 getPacienteR = do
     (widget,_) <- generateFormPost (formPaciente Nothing)
     msg <- getMessage
-    defaultLayout (formWidget widget msg PacienteR "Cadastrar")
+    defaultLayout $ do
+        setTitle "Login"
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/home.cassius")
+        (formWidget widget msg PacienteR "Cadastrar")
 
 postPacienteR :: Handler Html
 postPacienteR = do
