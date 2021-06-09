@@ -30,6 +30,11 @@
                             <i>
                                 Agendamentos
                     <hr class="solid">
+                    <a href=@{ListaUsuariosR}>
+                        <li>
+                            <i>
+                                Usuários
+                    <hr class="solid">
                     <form action=@{SairR} method=post>
                         <input type="submit" value="Sair">
                     <hr class="solid">

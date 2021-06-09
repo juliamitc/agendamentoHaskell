@@ -20,6 +20,8 @@
 /paciente/editar/#PacienteId EditarPacR GET POST
 
 /usuario UsuarioR GET POST
+/usuarios ListaUsuariosR GET
+/usuario/#UsuarioId ApagarUsuR POST
 
 /login AutR GET POST
 /logout SairR POST

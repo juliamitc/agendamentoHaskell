@@ -1,9 +1,0 @@
-<div>
-    <h2>
-        <b>
-            Selecionar medico
-    <div>
-        <select id='selectMedico'>
-        
-        <button id='concluir'>
-            Ir

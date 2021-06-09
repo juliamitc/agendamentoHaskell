@@ -39,16 +39,23 @@
                     <hr class="solid">
         <div #content>
             <h2>
-                <b>
-                Selecione a ação desejada:
-            <div #acoes>
-                <a href=@{MedicoR}>
-                    Cadastrar Médicos
-                <br>
-                <a href=@{ListaMedicosR}>
-                    Acessar Lista de Médicos
-
-
-
-            
-           
+                Lista de Usuários
+            <table>
+                <thead>
+                    <tr>
+                        <th #nome>
+                            E-MAIL
+                        <th #apagar>
+                            &nbsp;
+                <tbody>
+                    $forall Entity uid usuario <- usuarios
+                        <tr>
+                            <td>
+                                #{usuarioEmail usuario}
+                            <td>
+                                <form method=post action=@{ApagarUsuR uid}>
+                                    <input type="submit" value="X">
+            <br>
+            <div>
+                <a href=@{UsuarioR}>
+                    Adicionar Usuário

@@ -55,3 +55,17 @@ postUsuarioR = do
                         |]
                         redirect UsuarioR
         _ -> redirect HomeR
+
+getListaUsuariosR :: Handler Html
+getListaUsuariosR = do
+    usuarios <- runDB $ selectList [] [Asc UsuarioEmail]
+    defaultLayout $ do
+        setTitle "Lista de Usuários"
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/listar.cassius")
+        $(whamletFile "templates/usuarios.hamlet")
+
+postApagarUsuR :: UsuarioId -> Handler Html
+postApagarUsuR uid = do
+    runDB $ delete uid
+    redirect ListaUsuariosR
