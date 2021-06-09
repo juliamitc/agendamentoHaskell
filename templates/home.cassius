@@ -27,6 +27,11 @@ img
     padding: 60px
     background-color: #FDFFFC
 
+input
+  border: 0
+  background-color: #FDFFFC
+  color: red
+
 hr.solid 
   border-top: 1px solid #afdedc
   margin: 0 8px 8px 0

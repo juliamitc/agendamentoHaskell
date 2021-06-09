@@ -22,10 +22,10 @@ getUsuarioR = do
     (widget,_) <- generateFormPost formLogin
     msg <- getMessage
     defaultLayout $ do
-        setTitle "Login"
+        setTitle "Criar Usuário"
         addStylesheet (StaticR css_bootstrap_css)
-        toWidgetHead $(cassiusFile "templates/home.cassius")
-        (formWidget widget msg UsuarioR "Criar")
+        toWidgetHead $(cassiusFile "templates/form.cassius")
+        (formWidget widget msg UsuarioR "Cadastrar")
 
 postUsuarioR :: Handler Html
 postUsuarioR = do

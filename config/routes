@@ -25,3 +25,4 @@
 /logout SairR POST
 
 /agendar AgendamentoR GET POST
+/consulta/#MedicoId ConsultaR GET

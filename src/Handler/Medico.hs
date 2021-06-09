@@ -30,9 +30,9 @@ getMedicoR = do
     (widget,_) <- generateFormPost (formMedico Nothing)
     msg <- getMessage
     defaultLayout $ do
-        setTitle "Login"
+        setTitle "Cadastrar Médico"
         addStylesheet (StaticR css_bootstrap_css)
-        toWidgetHead $(cassiusFile "templates/home.cassius")
+        toWidgetHead $(cassiusFile "templates/form.cassius")
         (formWidget widget msg MedicoR "Cadastrar")
 
 postMedicoR :: Handler Html
@@ -70,7 +70,12 @@ getMedicoPerfilR mid = do
 getListaMedicosR :: Handler Html
 getListaMedicosR = do
     medicos <- runDB $ selectList [] [Asc MedicoNome]
-    defaultLayout $(whamletFile "templates/medicos.hamlet")
+    defaultLayout $ do
+        setTitle "Lista de Médicos"
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/listar.cassius")
+        $(whamletFile "templates/medicos.hamlet")
+
 
 -- delete from medico where id = mid
 postApagarMedR :: MedicoId -> Handler Html

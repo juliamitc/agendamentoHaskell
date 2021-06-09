@@ -1,30 +1,38 @@
 <div #background>
-    <div #sidebar>
-        <div>
-            <img src="/static/img/logoag.png">
-                
-        <div #menu>
-            <h2>
-                <b>
-                    MENU
-            <ul>
-                <hr class="solid">
-                <a href=@{HomeR}>
-                    <li>
-                        <i>
-                            Home
-                <hr class="solid">
-                <a href=@{MedicoR}>
-                    <li>
-                        <i>
-                            Cadastrar Doutores
-                <hr class="solid">
-                <a href=@{AgendamentoR}>
-                    <li>
-                        <i>
-                            Agendar Pacientes
-                <hr class="solid">
-    <div #content>
+        <div #sidebar>
+            <div>
+                <img src="/static/img/logoag.png">
+                    
+            <div #menu>
+                <h2>
+                    <b>
+                        MENU
+                <ul>
+                    <hr class="solid">
+                    <a href=@{HomeR}>
+                        <li>
+                            <i>
+                                Home
+                    <hr class="solid">
+                    <a href=@{MenuMedR}>
+                        <li>
+                            <i>
+                                Doutores
+                    <hr class="solid">
+                    <a href=@{MenuPacR}>
+                        <li>
+                            <i>
+                                Pacientes
+                    <hr class="solid">
+                    <a href=@{AgendamentoR}>
+                        <li>
+                            <i>
+                                Agendamentos
+                    <hr class="solid">
+                    <form action=@{SairR} method=post>
+                        <input type="submit" value="Sair">
+                    <hr class="solid">
+        <div #content>
         <h2>
             <b>
             Agendar Pacientes

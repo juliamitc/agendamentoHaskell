@@ -1,26 +1,75 @@
-<table>
-    <thead>
-        <tr>
-            <th>
-                NOME
-            <th>
-                ESPECIALIDADE
-            <th>
-                CRM
-            <th>
-            
-    <tbody>
-        $forall Entity mid medico <- medicos
-            <tr>
-                <td>
-                    #{medicoNome medico}
-                <td>
-                    #{medicoEspecialidade medico}
-                <td>
-                    #{medicoCrm medico}
-                <td>
-                    <a href=@{EditarMedR mid}>
-                        Editar
-                <td>
-                    <form method=post action=@{ApagarMedR mid}>
-                        <input type="submit" value="X">
+<div #background>
+        <div #sidebar>
+            <div>
+                <img src="/static/img/logoag.png">
+                    
+            <div #menu>
+                <h2>
+                    <b>
+                        MENU
+                <ul>
+                    <hr class="solid">
+                    <a href=@{HomeR}>
+                        <li>
+                            <i>
+                                Home
+                    <hr class="solid">
+                    <a href=@{MenuMedR}>
+                        <li>
+                            <i>
+                                Doutores
+                    <hr class="solid">
+                    <a href=@{MenuPacR}>
+                        <li>
+                            <i>
+                                Pacientes
+                    <hr class="solid">
+                    <a href=@{AgendamentoR}>
+                        <li>
+                            <i>
+                                Agendamentos
+                    <hr class="solid">
+                    <form action=@{SairR} method=post>
+                        <input type="submit" value="Sair">
+                    <hr class="solid">
+        <div #content>
+            <h2>
+                Lista de Médicos
+            <table>
+                <thead>
+                    <tr>
+                        <th #nome>
+                            NOME
+                        <th  #esp>
+                            ESPECIALIDADE
+                        <th #crm>
+                            CRM
+                        <th>
+                            &nbsp;
+                        <th #editar>
+                            &nbsp;
+                        <th #apagar>
+                            <a href=@{MedicoR}>
+                                +
+                <tbody>
+                    $forall Entity mid medico <- medicos
+                        <tr>
+                            <td>
+                                #{medicoNome medico}
+                            <td>
+                                #{medicoEspecialidade medico}
+                            <td>
+                                #{medicoCrm medico}
+                            <td>
+                                <a #link href=@{ConsultaR mid}>
+                                    Consultas
+                            <td>
+                                <a #link href=@{EditarMedR mid}>
+                                    Editar
+                            <td>
+                                <form method=post action=@{ApagarMedR mid}>
+                                    <input type="submit" value="X">
+            <br>
+            <div>
+                <a href=@{MedicoR}>
+                    Adicionar Médico

@@ -1,39 +1,47 @@
 <div #background>
-    <div #sidebar>
-        <div>
-            <img src="/static/img/logoag.png">
-                
-        <div #menu>
+        <div #sidebar>
+            <div>
+                <img src="/static/img/logoag.png">
+                    
+            <div #menu>
+                <h2>
+                    <b>
+                        MENU
+                <ul>
+                    <hr class="solid">
+                    <a href=@{HomeR}>
+                        <li>
+                            <i>
+                                Home
+                    <hr class="solid">
+                    <a href=@{MenuMedR}>
+                        <li>
+                            <i>
+                                Doutores
+                    <hr class="solid">
+                    <a href=@{MenuPacR}>
+                        <li>
+                            <i>
+                                Pacientes
+                    <hr class="solid">
+                    <a href=@{AgendamentoR}>
+                        <li>
+                            <i>
+                                Agendamentos
+                    <hr class="solid">
+                    <form action=@{SairR} method=post>
+                        <input type="submit" value="Sair">
+                    <hr class="solid">
+        <div #content>
             <h2>
                 <b>
-                    MENU
-            <ul>
-                <hr class="solid">
-                <a href=@{HomeR}>
-                    <li>
-                        <i>
-                            Home
-                <hr class="solid">
-                <a href=@{MenuMedR}>
-                    <li>
-                        <i>
-                            Doutores
-                <hr class="solid">
-                <a href=@{MenuPacR}>
-                    <li>
-                        <i>
-                            Pacientes
-                <hr class="solid">
-    <div #content>
-        <h2>
-            <b>
-            Selecione a ação desejada:
-        <div #acoes>
-            <a href=@{MedicoR}>
-                Cadastrar Médicos
-            <br>
-            <a href=@{ListaMedicosR}>
-                Acessar Lista de Médicos
+                Selecione a ação desejada:
+            <div #acoes>
+                <a href=@{MedicoR}>
+                    Cadastrar Médicos
+                <br>
+                <a href=@{ListaMedicosR}>
+                    Acessar Lista de Médicos
 
 
 

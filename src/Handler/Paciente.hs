@@ -8,6 +8,7 @@ module Handler.Paciente where
 
 import Import
 import Text.Cassius
+import Text.Julius
 import Handler.Auxiliar
 
 getMenuPacR :: Handler Html
@@ -31,9 +32,9 @@ getPacienteR = do
     (widget,_) <- generateFormPost (formPaciente Nothing)
     msg <- getMessage
     defaultLayout $ do
-        setTitle "Login"
+        setTitle "Cadastrar Paciente"
         addStylesheet (StaticR css_bootstrap_css)
-        toWidgetHead $(cassiusFile "templates/home.cassius")
+        toWidgetHead $(cassiusFile "templates/form.cassius")
         (formWidget widget msg PacienteR "Cadastrar")
 
 postPacienteR :: Handler Html
@@ -66,7 +67,11 @@ getPacientePerfilR pid = do
 getListaPacientesR :: Handler Html
 getListaPacientesR = do
     pacientes <- runDB $ selectList [] [Asc PacienteNome]
-    defaultLayout $(whamletFile "templates/pacientes.hamlet")
+    defaultLayout $ do
+        setTitle "Lista de Pacientes"
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/listar.cassius")
+        $(whamletFile "templates/pacientes.hamlet")
 
 -- delete from paciente where id = pid
 postApagarPacR :: PacienteId -> Handler Html

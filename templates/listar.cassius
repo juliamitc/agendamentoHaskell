@@ -1,3 +1,39 @@
+thead
+  background-color: #00C2CB
+  font-weight: 400
+
+th
+  padding-left: 10px
+  font-size: 20px
+  color: white
+
+td
+  padding: 8px
+  color: grey
+  height: 50px
+  font-size: 16px
+
+#nome
+  width: 260px
+
+#apagar
+  width: 50px
+
+#editar
+  width: 80px
+
+#idade
+  width: 50px
+
+#esp
+  width: 210px
+
+#crm
+  width: 150px
+
+#link
+  text-decoration: none
+
 #background
     background-color: #FDFFFC
     position:absolute
@@ -22,14 +58,15 @@ img
   overflow-x: hidden;
   padding-top: 20px;
 
-#content
-    margin-left: 250px
-    padding: 60px
-
 input
   border: 0
   background-color: #FDFFFC
   color: red
+
+#content
+    margin-left: 250px
+    padding: 60px
+    background-color: #FDFFFC
 
 hr.solid 
   border-top: 1px solid #afdedc
@@ -38,9 +75,9 @@ hr.solid
   width: 200px
 
 h2
-    font-size: 18px
-    margin-left: 30px
+    font-size: 20px
     color:#00C2CB
+    text-decoration: bold
 
 ul
     list-style-type: none
@@ -51,10 +88,3 @@ li
     text-align: center
     margin-left: -20px
     margin-bottom: 10px
-
-p
-    font-size: 14px
-    color: grey
-    justify-content: center
-    margin-left: 15px
-

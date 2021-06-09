@@ -4,12 +4,14 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Handler.Agendamento where
 
 import Import
-import Text.Lucius
+import Text.Cassius
 import Text.Julius
---import Network.HTTP.Types.Status
+import Handler.Auxiliar
 import Database.Persist.Postgresql
 
 medicoCB = do
@@ -35,19 +37,11 @@ getAgendamentoR :: Handler Html
 getAgendamentoR = do 
     (widget,_) <- generateFormPost formAgendamento
     msg <- getMessage
-    defaultLayout $ 
-        [whamlet|
-            $maybe mensa <- msg 
-                <div>
-                    ^{mensa}
-            
-            <h1>
-                CADASTRO DE AgendamentoCOES
-            
-            <form method=post action=@{AgendamentoR}>
-                ^{widget}
-                <input type="submit" value="Cadastrar">
-        |]
+    defaultLayout $ do
+        setTitle "Cadastro de Agendamentos" 
+        addStylesheet (StaticR css_bootstrap_css)
+        toWidgetHead $(cassiusFile "templates/form.cassius")
+        (formWidget widget msg AgendamentoR "Cadastrar")
 
 postAgendamentoR :: Handler Html
 postAgendamentoR = do 
@@ -57,7 +51,29 @@ postAgendamentoR = do
             runDB $ insert agendamento 
             setMessage [shamlet|
                 <div>
-                    agendamentoCAO INCLUIDA
+                    Agendamento Incluído!
             |]
             redirect AgendamentoR
         _ -> redirect HomeR
+
+
+getConsultaR :: MedicoId -> Handler Html
+getConsultaR medicoid = do 
+    let sql = "SELECT ??,??,?? FROM agendamento \
+          \ INNER JOIN medico ON medico.id = agendamento.medicoid \
+          \ INNER JOIN paciente ON paciente.id = agendamento.pacienteid \
+          \ WHERE medico.id = ?"
+    medico <- runDB $ get404 medicoid
+    agendamentos <- runDB $ rawSql sql [toPersistValue medicoid] :: Handler [(Entity Agendamento,Entity Paciente,Entity Agendamento)]
+    defaultLayout $ do 
+        [whamlet|
+            <h1>
+                Agenda de #{medicoNome medico}
+            <ul>
+                $forall (Entity _ agendamento, Entity _ paciente, Entity _ _) <- agendamentos
+                    <li>
+                        #{agendamentoTipo agendamento}
+                        #{agendamentoHora agendamento}
+                        #{show $ agendamentoDia agendamento}
+                        #{pacienteNome paciente}
+        |]

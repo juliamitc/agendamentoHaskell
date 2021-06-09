@@ -1,0 +1,18 @@
+h2
+    margin-left: 80px
+    margin-top:70px
+form
+    margin-left: 120px
+    margin-top: 50px
+
+input
+    display: block
+    margin-bottom: 30px
+
+label
+    padding-right: 10px
+
+#cadastrar
+    background-color: #00C2CB
+    color: white
+    border: 0

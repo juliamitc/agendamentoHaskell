@@ -1,30 +1,73 @@
-<table>
-    <thead>
-        <tr>
-            <th>
-                NOME
-            <th>
-                CPF
-            <th>
-                IDADE
-            <th>
-                PLANO
-            <th>
-            
-    <tbody>
-        $forall Entity pid paciente <- pacientes
-            <tr>
-                <td>
-                    #{pacienteNome paciente}
-                <td>
-                    #{pacienteCpf paciente}
-                <td>
-                    #{pacienteIdade paciente}
-                <td>
-                    #{pacientePlano paciente}
-                <td>
-                    <a href=@{EditarPacR pid}>
-                        Editar
-                <td>
-                    <form method=post action=@{ApagarPacR pid}>
-                        <input type="submit" value="X">
+<div #background>
+        <div #sidebar>
+            <div>
+                <img src="/static/img/logoag.png">
+                    
+            <div #menu>
+                <h2>
+                    <b>
+                        MENU
+                <ul>
+                    <hr class="solid">
+                    <a href=@{HomeR}>
+                        <li>
+                            <i>
+                                Home
+                    <hr class="solid">
+                    <a href=@{MenuMedR}>
+                        <li>
+                            <i>
+                                Doutores
+                    <hr class="solid">
+                    <a href=@{MenuPacR}>
+                        <li>
+                            <i>
+                                Pacientes
+                    <hr class="solid">
+                    <a href=@{AgendamentoR}>
+                        <li>
+                            <i>
+                                Agendamentos
+                    <hr class="solid">
+                    <form action=@{SairR} method=post>
+                        <input type="submit" value="Sair">
+                    <hr class="solid">
+        <div #content>
+            <h2>
+                Lista de Pacientes
+            <table>
+                <thead>
+                    <tr>
+                        <th #nome>
+                            NOME
+                        <th #esp>
+                            CPF
+                        <th #idade>
+                            IDADE
+                        <th #crm>
+                            PLANO
+                        <th #editar>
+                            &nbsp;
+                        <th #apagar>
+                            &nbsp;
+                <tbody>
+                    $forall Entity pid paciente <- pacientes
+                        <tr>
+                            <td>
+                                #{pacienteNome paciente}
+                            <td>
+                                #{pacienteCpf paciente}
+                            <td>
+                                #{pacienteIdade paciente}
+                            <td>
+                                #{pacientePlano paciente}
+                            <td>
+                                <a href=@{EditarPacR pid}>
+                                    Editar
+                            <td>
+                                <form method=post action=@{ApagarPacR pid}>
+                                    <input type="submit" value="X">
+                <br>
+                <div>
+                    <a href=@{PacienteR}>
+                        Adicionar Paciente
